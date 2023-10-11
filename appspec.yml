@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /home/ubuntu/crazy-imagine-strapi-netlify
+    overwrite: true
+file_exist_behavior: OVERWRITE
+hooks:
+  BeforeInstall:
+    - location: scripts/before-install.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/install-dependencies.sh
+      timeout: 800
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start-server.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:
+    - location: scripts/stop-server.sh
+      timeout: 300
+      runas: ubuntu

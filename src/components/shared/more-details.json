@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_more_details",
+  "info": {
+    "displayName": "MoreDetails"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

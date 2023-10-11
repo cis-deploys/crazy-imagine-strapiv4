@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_skills",
+  "info": {
+    "displayName": "skill"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "percentage": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "work_with_us_pages",
+  "info": {
+    "singularName": "work-with-us-page",
+    "pluralName": "work-with-us-pages",
+    "displayName": "WorkWithUsPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

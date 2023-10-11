@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "curriculums",
+  "info": {
+    "singularName": "curriculum",
+    "pluralName": "curriculums",
+    "displayName": "Curriculums",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "curriculum": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    }
+  }
+}

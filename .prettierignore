@@ -1,0 +1,11 @@
+.cache
+package.json
+package-lock.json
+public
+webpack.config.js
+*.html
+*.js
+*.css
+*.tff
+*.otf
+*.json
