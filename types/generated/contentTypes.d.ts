@@ -717,15 +717,60 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    content: Attribute.RichText & Attribute.Required
-    publishedat: Attribute.DateTime & Attribute.Required
-    status: Attribute.Enumeration<["draft ", "published"]>
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    publishedat: Attribute.DateTime &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    status: Attribute.Enumeration<["draft ", "published"]> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     slug: Attribute.UID<"api::article.article", "title"> & Attribute.Required
-    image: Attribute.Media
-    Key: Attribute.String & Attribute.Required
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    Key: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     category: Attribute.Relation<
       "api::article.article",
       "oneToOne",
@@ -736,7 +781,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       "oneToOne",
       "api::write.write"
     >
-    seo: Attribute.Component<"shared.seo">
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -752,6 +802,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::article.article",
+      "oneToMany",
+      "api::article.article"
+    >
+    locale: Attribute.String
   }
 }
 
