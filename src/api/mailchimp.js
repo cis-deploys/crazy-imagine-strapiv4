@@ -21,7 +21,6 @@ async function addMailchimp(content) {
     return response;
   } catch (error) {
     console.error(`Error al agregar miembro a lista de Mailchimp: ${error}`);
-    // throw error;
   }
 }
 
