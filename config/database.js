@@ -52,9 +52,9 @@ module.exports = ({ env }) => {
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 5432),
         database: env('DATABASE_NAME', 'strapi-prueba'),
-        user: env('DATABASE_USERNAME', 'admin'),
-        password: env('DATABASE_PASSWORD', 'admin'),
-        ssl: env.bool('DATABASE_SSL', true),
+        user: env('DATABASE_USERNAME', 'postgres'),
+        password: env('DATABASE_PASSWORD', '19981129da'),
+        ssl: env.bool('DATABASE_SSL', false),
       },
     },
     sqlite: {

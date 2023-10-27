@@ -4,71 +4,126 @@
   "info": {
     "singularName": "projectspage",
     "pluralName": "projectspages",
-    "displayName": "Projectspage"
+    "displayName": "Projectspage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "mainTitle": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "ourProjectsTitle": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "outProjectsDescription": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "ourProjectsImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "imageTitle": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "projectContactImg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "imgContact": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos"
       ],
-      "type": "media",
-      "multiple": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

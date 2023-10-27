@@ -680,14 +680,35 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
     singularName: "about-page"
     pluralName: "about-pages"
     displayName: "AboutPage"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    images: Attribute.Media
-    title: Attribute.String
-    seo: Attribute.Component<"shared.seo">
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -703,6 +724,12 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::about-page.about-page",
+      "oneToMany",
+      "api::about-page.about-page"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -768,7 +795,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
+          localized: false
         }
       }>
     category: Attribute.Relation<
@@ -817,14 +844,35 @@ export interface ApiBlogBlog extends Schema.SingleType {
     singularName: "blog"
     pluralName: "blogs"
     displayName: "Blog"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    title: Attribute.String
-    Images: Attribute.Media
-    seo: Attribute.Component<"shared.seo">
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    Images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -832,6 +880,12 @@ export interface ApiBlogBlog extends Schema.SingleType {
       Attribute.Private
     updatedBy: Attribute.Relation<"api::blog.blog", "oneToOne", "admin::user"> &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::blog.blog",
+      "oneToMany",
+      "api::blog.blog"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -846,8 +900,19 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    name: Attribute.String & Attribute.Required
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     slug: Attribute.UID<"api::category.category", "name"> & Attribute.Required
     articles: Attribute.Relation<
       "api::category.category",
@@ -869,6 +934,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::category.category",
+      "oneToMany",
+      "api::category.category"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -878,14 +949,35 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
     singularName: "contact-page"
     pluralName: "contact-pages"
     displayName: "ContactPage"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    title: Attribute.String
-    images: Attribute.Media
-    seo: Attribute.Component<"shared.seo">
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -901,6 +993,12 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::contact-page.contact-page",
+      "oneToMany",
+      "api::contact-page.contact-page"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -953,10 +1051,31 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    favicon: Attribute.Media
-    siteName: Attribute.String & Attribute.Required
-    seo: Attribute.Component<"shared.seo">
+    favicon: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    siteName: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -972,6 +1091,12 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::global.global",
+      "oneToMany",
+      "api::global.global"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -986,14 +1111,54 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    seo: Attribute.Component<"shared.seo">
-    hero: Attribute.Component<"sections.hero">
-    clientsImage: Attribute.Media
-    teamImages: Attribute.Media
-    projectsImage: Attribute.Media
-    teamPage: Attribute.Media
-    Test: Attribute.Media
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    hero: Attribute.Component<"sections.hero"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    clientsImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    teamImages: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    projectsImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    teamPage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    Test: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1005,6 +1170,44 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private
     updatedBy: Attribute.Relation<
       "api::home-page.home-page",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      "api::home-page.home-page",
+      "oneToMany",
+      "api::home-page.home-page"
+    >
+    locale: Attribute.String
+  }
+}
+
+export interface ApiMailchimpMailchimp extends Schema.CollectionType {
+  collectionName: "mailchimps"
+  info: {
+    singularName: "mailchimp"
+    pluralName: "mailchimps"
+    displayName: "Mailchimp"
+  }
+  options: {
+    draftAndPublish: true
+  }
+  attributes: {
+    name: Attribute.String & Attribute.Required
+    lastname: Attribute.String & Attribute.Required
+    email: Attribute.Email & Attribute.Required
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<
+      "api::mailchimp.mailchimp",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private
+    updatedBy: Attribute.Relation<
+      "api::mailchimp.mailchimp",
       "oneToOne",
       "admin::user"
     > &
@@ -1128,20 +1331,67 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: "project"
     pluralName: "projects"
     displayName: "Project"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    images: Attribute.Media
-    title: Attribute.String
-    description: Attribute.Text
-    details: Attribute.Text
-    moreAbout: Attribute.Text
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    details: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    moreAbout: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     slug: Attribute.UID<"api::project.project", "title">
-    galleryImages: Attribute.Media
-    seo: Attribute.Component<"shared.seo">
-    Key: Attribute.String
+    galleryImages: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    Key: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1157,6 +1407,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::project.project",
+      "oneToMany",
+      "api::project.project"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -1166,20 +1422,71 @@ export interface ApiProjectspageProjectspage extends Schema.SingleType {
     singularName: "projectspage"
     pluralName: "projectspages"
     displayName: "Projectspage"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    mainTitle: Attribute.String
-    image: Attribute.Media
-    ourProjectsTitle: Attribute.String
-    outProjectsDescription: Attribute.Text
-    ourProjectsImage: Attribute.Media
-    imageTitle: Attribute.Media
-    projectContactImg: Attribute.Media
-    imgContact: Attribute.Media
-    seo: Attribute.Component<"shared.seo">
+    mainTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ourProjectsTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    outProjectsDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ourProjectsImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    imageTitle: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    projectContactImg: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    imgContact: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1195,6 +1502,12 @@ export interface ApiProjectspageProjectspage extends Schema.SingleType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::projectspage.projectspage",
+      "oneToMany",
+      "api::projectspage.projectspage"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -1209,11 +1522,36 @@ export interface ApiReviewReview extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    name: Attribute.String
-    ocupation: Attribute.Text
-    review: Attribute.String
-    avatar: Attribute.Media
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ocupation: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    review: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    avatar: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1229,6 +1567,12 @@ export interface ApiReviewReview extends Schema.CollectionType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::review.review",
+      "oneToMany",
+      "api::review.review"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -1307,14 +1651,35 @@ export interface ApiWorkWithUsPageWorkWithUsPage extends Schema.SingleType {
     singularName: "work-with-us-page"
     pluralName: "work-with-us-pages"
     displayName: "WorkWithUsPage"
+    description: ""
   }
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    images: Attribute.Media
-    title: Attribute.String
-    seo: Attribute.Component<"shared.seo">
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    seo: Attribute.Component<"shared.seo"> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1330,6 +1695,12 @@ export interface ApiWorkWithUsPageWorkWithUsPage extends Schema.SingleType {
       "admin::user"
     > &
       Attribute.Private
+    localizations: Attribute.Relation<
+      "api::work-with-us-page.work-with-us-page",
+      "oneToMany",
+      "api::work-with-us-page.work-with-us-page"
+    >
+    locale: Attribute.String
   }
 }
 
@@ -1394,6 +1765,7 @@ declare module "@strapi/strapi" {
       "api::curriculum.curriculum": ApiCurriculumCurriculum
       "api::global.global": ApiGlobalGlobal
       "api::home-page.home-page": ApiHomePageHomePage
+      "api::mailchimp.mailchimp": ApiMailchimpMailchimp
       "api::member.member": ApiMemberMember
       "api::memberpage.memberpage": ApiMemberpageMemberpage
       "api::product.product": ApiProductProduct
