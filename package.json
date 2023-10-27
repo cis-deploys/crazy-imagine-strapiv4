@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "@strapi/plugin-content-manager": "^4.14.3",
     "@strapi/plugin-content-type-builder": "^4.14.3",
     "@strapi/plugin-email": "^4.14.3",
