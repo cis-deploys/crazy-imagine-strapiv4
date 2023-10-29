@@ -6,8 +6,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https://res.cloudinary.com'],
-          'media-src': ["'self'",'data:','blob:', 'https://res.cloudinary.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'blogadmin.s3.amazonaws.com'],
+          'media-src': ["'self'",'data:','blob:', 'market-assets.strapi.io', 'blogadmin.s3.amazonaws.com'],
           upgradeInsecureRequests: null,
         },
       },
@@ -23,3 +23,6 @@ module.exports = [
   'strapi::favicon',
   'strapi::public',
 ];
+
+// 'blogadmin.s3.us-east-1.amazonaws.com',
+
