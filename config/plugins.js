@@ -29,6 +29,20 @@ module.exports = ({ env }) => ({
         },
       },
     },
+    "netlify-deployments": {
+      enabled: true,
+      config: {
+        accessToken: env('NETLIFY_DEPLOYMENTS_PLUGIN_ACCESS_TOKEN'),
+        sites: [
+          {
+            name: 'crazyimagine-nextjs',
+            id: "bca1cdb0-58d0-4803-8ca5-fd37db559742",
+            buildHook: "https://api.netlify.com/build_hooks/653ff609fe789327cc3e9588",
+            branch: 'main'
+          }
+        ]
+      }
+    },
     // upload: {
     //   provider: "aws-s3", 
     //   providerOptions: {

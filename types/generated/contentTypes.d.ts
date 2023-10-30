@@ -1534,13 +1534,13 @@ export interface ApiReviewReview extends Schema.CollectionType {
           localized: true
         }
       }>
-    ocupation: Attribute.Text &
+    ocupation: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
         }
       }>
-    review: Attribute.String &
+    review: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
