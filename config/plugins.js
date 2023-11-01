@@ -10,26 +10,24 @@ module.exports = ({ env }) => ({
       },
     },
     upload: {
-      config: {
         provider: 'aws-s3',
         providerOptions: {
-          baseUrl: env('AWS_URL'),
-          s3Options: {
             accessKeyId: env('AWS_ACCESS_KEY_ID'),
             secretAccessKey: env('AWS_ACCESS_SECRET'),
             region: env('AWS_REGION'),
           params: {
             ACL: 'public-read', // <== set ACL to private
-            // signedUrlExpires: env('AWS_SIGNED_URL_EXPIRES', 15 * 60),
+          //signedUrlExpires: env('AWS_SIGNED_URL_EXPIRES', 15 * 60),
             Bucket: env('AWS_BUCKET_NAME'),
           },
-        }
+          s3Options: {
+            endpoint: 'https://blogadmin.s3.amazonaws.com', // URL base de S3
+          },
         },
         actionOptions: {
           upload: {},
           uploadStream: {},
           delete: {},
-        },
       },
     },
   });
