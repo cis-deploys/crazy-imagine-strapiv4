@@ -1392,6 +1392,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: false
         }
       }>
+    project_types: Attribute.Relation<
+      "api::project.project",
+      "manyToMany",
+      "api::project-type.project-type"
+    >
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -1413,6 +1418,43 @@ export interface ApiProjectProject extends Schema.CollectionType {
       "api::project.project"
     >
     locale: Attribute.String
+  }
+}
+
+export interface ApiProjectTypeProjectType extends Schema.CollectionType {
+  collectionName: "project_types"
+  info: {
+    singularName: "project-type"
+    pluralName: "project-types"
+    displayName: "Project Type"
+    description: ""
+  }
+  options: {
+    draftAndPublish: true
+  }
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique
+    slug: Attribute.UID<"api::project-type.project-type", "name">
+    projects: Attribute.Relation<
+      "api::project-type.project-type",
+      "manyToMany",
+      "api::project.project"
+    >
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<
+      "api::project-type.project-type",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private
+    updatedBy: Attribute.Relation<
+      "api::project-type.project-type",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private
   }
 }
 
@@ -1770,6 +1812,7 @@ declare module "@strapi/strapi" {
       "api::memberpage.memberpage": ApiMemberpageMemberpage
       "api::product.product": ApiProductProduct
       "api::project.project": ApiProjectProject
+      "api::project-type.project-type": ApiProjectTypeProjectType
       "api::projectspage.projectspage": ApiProjectspageProjectspage
       "api::review.review": ApiReviewReview
       "api::service.service": ApiServiceService
