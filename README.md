@@ -4,7 +4,7 @@ Strapi comes with a full featured [Command Line Interface](https://docs.strapi.i
 
 # NODE
 
-** Node Version: 18.18.0**
+** Node Version: 16.16.0**
 
 ### `develop`
 
