@@ -106,6 +106,12 @@
       "relation": "manyToMany",
       "target": "api::project-type.project-type",
       "inversedBy": "projects"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::review.review",
+      "mappedBy": "projects"
     }
   }
 }
