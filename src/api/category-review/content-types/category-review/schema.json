@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_reviews",
+  "info": {
+    "singularName": "category-review",
+    "pluralName": "category-reviews",
+    "displayName": "Category Review",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Development": {
+      "type": "text"
+    },
+    "Project_Management": {
+      "type": "text"
+    },
+    "Virtual_Assistance": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Development"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::review.review",
+      "mappedBy": "category_reviews"
+    }
+  }
+}
