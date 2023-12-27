@@ -55,6 +55,26 @@
           "localized": true
         }
       }
+    },
+    "duration": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "date"
+    },
+    "category_reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-review.category-review",
+      "inversedBy": "reviews"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "reviews"
     }
   }
 }
