@@ -109,9 +109,9 @@
     },
     "reviews": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::review.review",
-      "mappedBy": "projects"
+      "mappedBy": "project"
     }
   }
 }

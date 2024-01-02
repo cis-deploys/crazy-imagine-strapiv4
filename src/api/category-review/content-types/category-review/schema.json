@@ -23,13 +23,16 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "Development"
+      "targetField": "Name"
     },
     "reviews": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::review.review",
       "mappedBy": "category_reviews"
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }
