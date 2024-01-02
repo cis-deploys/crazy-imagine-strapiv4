@@ -56,7 +56,19 @@
         }
       }
     },
-    "duration": {
+    "category_reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-review.category-review",
+      "inversedBy": "reviews"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "reviews"
+    },
+    "startDate": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -64,17 +76,13 @@
       },
       "type": "date"
     },
-    "category_reviews": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category-review.category-review",
-      "inversedBy": "reviews"
-    },
-    "projects": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project.project",
-      "inversedBy": "reviews"
+    "endDate": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "date"
     }
   }
 }
