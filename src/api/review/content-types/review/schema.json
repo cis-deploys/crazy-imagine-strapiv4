@@ -56,12 +56,6 @@
         }
       }
     },
-    "category_reviews": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category-review.category-review",
-      "inversedBy": "reviews"
-    },
     "project": {
       "type": "relation",
       "relation": "manyToOne",
@@ -83,6 +77,35 @@
         }
       },
       "type": "date"
+    },
+    "category_reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-review.category-review",
+      "mappedBy": "reviews"
+    },
+    "worked_by": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "worked_by"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reviews"
     }
   }
 }
